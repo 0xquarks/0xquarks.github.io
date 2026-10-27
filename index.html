@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Danny Pineda</title>
+<meta name="description" content="Portafolio personal.">
+<style>
+:root{
+  --bg:#fafaf8; --ink:#1d2421; --mute:#6b7571; --line:#dfe2de; --accent:#2f5d50;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#141917; --ink:#e4e8e5; --mute:#8d9993; --line:#28312d; --accent:#7fc4ab}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.05rem/1.7 var(--sans)}
+a{color:var(--accent);text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:42rem;margin:0 auto;padding:0 1.25rem}
+nav{padding:1.5rem 0;font:.9rem var(--mono);display:flex;gap:1.25rem;flex-wrap:wrap}
+nav a{color:var(--mute);text-decoration:none}
+nav a:hover{color:var(--accent)}
+nav .home{margin-right:auto;color:var(--ink)}
+h1{font:600 2.2rem/1.2 var(--mono);margin:3rem 0 .3rem;letter-spacing:-.02em}
+.bytes{font:.85rem var(--mono);color:var(--mute);margin:0 0 1.5rem;word-break:break-all}
+.lead{font-size:1.2rem;margin:0 0 3rem}
+h2{font:600 1rem var(--mono);margin:0 0 1rem;color:var(--mute)}
+h2::before{content:"// "}
+section{padding:2rem 0;border-top:1px solid var(--line)}
+dl{margin:0;display:grid;grid-template-columns:8rem 1fr;gap:.5rem 1rem}
+dt{font:.9rem var(--mono);color:var(--mute);padding-top:.15rem}
+dd{margin:0}
+.proj{list-style:none;margin:0;padding:0}
+.proj li{margin-bottom:1.4rem}
+.proj a{font:600 1rem var(--mono)}
+.proj p{margin:.15rem 0 0}
+.proj small{font:.8rem var(--mono);color:var(--mute)}
+footer{padding:2rem 0 3rem;border-top:1px solid var(--line);font:.8rem var(--mono);color:var(--mute)}
+@media (max-width:560px){dl{grid-template-columns:1fr;gap:0}dd{margin-bottom:.8rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <a class="home" href="#">~/</a>
+    <a href="#habilidades">habilidades</a>
+    <a href="#proyectos">proyectos</a>
+    <a href="#contacto">contacto</a>
+  </nav>
+
+  <header>
+    <h1 id="nombre">Danny Pineda</h1>
+    <p class="bytes" id="bytes" aria-hidden="true"></p>
+    <p class="lead">Me gusta la programacion, en concreto me gusta la programacion a nivel de sistemas que tenga que ver con el hardware, el kernel o graficos, tambien me gusta la ciberseguridad como la ingenieria inversa y el analisis de binarios, el lenguaje que mas me gusta es Rust y C</p>
+  </header>
+
+  <section id="habilidades">
+    <h2>habilidades</h2>
+    <dl>
+      <dt>lenguajes</dt><dd>C, Rust</dd>
+      <dt>sistemas</dt><dd>Linux</dd>
+    </dl>
+  </section>
+
+  <section id="proyectos">
+    <h2>proyectos</h2>
+    <ul class="proj">
+      <li>
+        <a href="https://github.com/0xquarks/chip8.git">Emulador del Chip-8</a> <small>C/C++</small>
+        <p>Es un emulador sobre el chip-8 escrito en C/C++.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="contacto">
+    <h2>contacto</h2>
+    <dl>
+      <dt>github</dt><dd><a href="https://github.com/0xquarks">github.com/0xquarks</a></dd>
+    </dl>
+  </section>
+
+</div>
+
+<script>
+  // Edita tu nombre aquí; la línea de bytes se genera sola
+  var NAME = "Danny Pineda";
+  document.getElementById("nombre").textContent = NAME;
+  document.title = NAME + " · Programación de bajo nivel";
+  document.getElementById("bytes").textContent =
+    Array.from(new TextEncoder().encode(NAME))
+      .map(function(b){ return b.toString(16).padStart(2, "0"); }).join(" ");
+</script>
+</body>
+</html>
